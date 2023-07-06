@@ -10,6 +10,7 @@ import SubmitButton from '@components/buttons/SubmitButton'
 import ErrorMessage from '@components/form/ErrorMessage';
 import SuccessMessage from '@components/form/SuccessMessage';
 
+
 const orbitron = Orbitron({
   subsets: ['latin'],
   weights: [400, 700],
@@ -75,11 +76,13 @@ export default function SignIn() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
+  console.log(process.env.NEXT_PUBLIC_API_URL)
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await fetch('https://smart-api.hop.sh/api/auth/signin', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/auth/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
