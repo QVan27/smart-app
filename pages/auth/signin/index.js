@@ -76,8 +76,6 @@ export default function SignIn() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  console.log(process.env.NEXT_PUBLIC_API_URL)
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 

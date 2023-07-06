@@ -9,8 +9,8 @@ module.exports = withPWA({
     register: true,
     skipWaiting: true,
   },
-  publicRuntimeConfig: {
-    API_URL: process.env.API_URL,
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
   }
 });
 
