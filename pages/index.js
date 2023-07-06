@@ -155,7 +155,7 @@ export default function Home() {
   useEffect(() => {
     const fetchUserBooKings = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/user/bookings', {
+        const response = await fetch('https://smart-api.hop.sh/api/user/bookings', {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }

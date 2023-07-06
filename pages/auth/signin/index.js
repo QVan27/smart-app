@@ -80,7 +80,7 @@ export default function SignIn() {
     event.preventDefault();
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/auth/signin`, {
+      const response = await fetch(`https://smart-api.hop.sh/api/auth/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
