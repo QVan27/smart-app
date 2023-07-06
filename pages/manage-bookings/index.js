@@ -164,7 +164,7 @@ export default function ManageBooking() {
   useEffect(() => {
     const fetchBooKings = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/bookings', {
+        const response = await fetch('https://smart-api.hop.sh/api/bookings', {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }
@@ -188,7 +188,7 @@ export default function ManageBooking() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:8080/api/bookings/${bookingId}`, {
+      const response = await fetch(`https://smart-api.hop.sh/api/bookings/${bookingId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -213,7 +213,7 @@ export default function ManageBooking() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:8080/api/bookings/${bookingId}`, {
+      const response = await fetch(`https://smart-api.hop.sh/api/bookings/${bookingId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

@@ -289,7 +289,7 @@ export default function SingleBooking() {
 
   const handleAddUsers = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/bookings/${id}/users`, {
+      const response = await fetch(`https://smart-api.hop.sh/api/bookings/${id}/users`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -311,7 +311,7 @@ export default function SingleBooking() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/users', {
+        const response = await fetch('https://smart-api.hop.sh/api/users', {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }
@@ -338,7 +338,7 @@ export default function SingleBooking() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/user', {
+        const response = await fetch('https://smart-api.hop.sh/api/user', {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }
@@ -361,7 +361,7 @@ export default function SingleBooking() {
   useEffect(() => {
     const fetchBooking = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/bookings/${id}`, {
+        const response = await fetch(`https://smart-api.hop.sh/api/bookings/${id}`, {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }
@@ -387,7 +387,7 @@ export default function SingleBooking() {
     if (booking?.roomId) {
       const fetchRoom = async () => {
         try {
-          const response = await fetch(`http://localhost:8080/api/rooms/${booking?.roomId}`, {
+          const response = await fetch(`https://smart-api.hop.sh/api/rooms/${booking?.roomId}`, {
             headers: {
               'x-access-token': localStorage.getItem('accessToken')
             }
@@ -412,7 +412,7 @@ export default function SingleBooking() {
   const handleRemoveUser = async (userId) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/bookings/${booking?.id}/users/${userId}`,
+        `https://smart-api.hop.sh/api/bookings/${booking?.id}/users/${userId}`,
         {
           method: 'DELETE',
           headers: {
@@ -422,7 +422,7 @@ export default function SingleBooking() {
       );
 
       if (response.ok) {
-        const response = await fetch(`http://localhost:8080/api/bookings/${id}`, {
+        const response = await fetch(`https://smart-api.hop.sh/api/bookings/${id}`, {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }

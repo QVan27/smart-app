@@ -260,7 +260,7 @@ export default function SingleEmployee() {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/users/${id}`, {
+      const response = await fetch(`https://smart-api.hop.sh/api/users/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -281,7 +281,7 @@ export default function SingleEmployee() {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/users/${id}`, {
+        const response = await fetch(`https://smart-api.hop.sh/api/users/${id}`, {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }
@@ -304,7 +304,7 @@ export default function SingleEmployee() {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/user', {
+        const response = await fetch('https://smart-api.hop.sh/api/user', {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }
@@ -331,7 +331,7 @@ export default function SingleEmployee() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:8080/api/users/${id}`, {
+      const response = await fetch(`https://smart-api.hop.sh/api/users/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -226,7 +226,7 @@ export default function SingleRoom({ idRoom }) {
   useEffect(() => {
     const fetchRoom = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/rooms/${id}`, {
+        const response = await fetch(`https://smart-api.hop.sh/api/rooms/${id}`, {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }
@@ -251,7 +251,7 @@ export default function SingleRoom({ idRoom }) {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/user', {
+        const response = await fetch('https://smart-api.hop.sh/api/user', {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }
@@ -276,7 +276,7 @@ export default function SingleRoom({ idRoom }) {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/rooms/${id}`, {
+      const response = await fetch(`https://smart-api.hop.sh/api/rooms/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -298,7 +298,7 @@ export default function SingleRoom({ idRoom }) {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:8080/api/rooms/${id}`, {
+      const response = await fetch(`https://smart-api.hop.sh/api/rooms/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

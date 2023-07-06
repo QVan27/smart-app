@@ -116,7 +116,7 @@ export default function Rooms() {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/rooms', {
+        const response = await fetch('https://smart-api.hop.sh/api/rooms', {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }
@@ -139,7 +139,7 @@ export default function Rooms() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/user', {
+        const response = await fetch('https://smart-api.hop.sh/api/user', {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }

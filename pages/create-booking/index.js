@@ -79,7 +79,7 @@ export default function CreateBooking() {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/rooms', {
+        const response = await fetch('https://smart-api.hop.sh/api/rooms', {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }
@@ -102,7 +102,7 @@ export default function CreateBooking() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/users', {
+        const response = await fetch('https://smart-api.hop.sh/api/users', {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }
@@ -135,7 +135,7 @@ export default function CreateBooking() {
         return;
       }
 
-      const res = await fetch('http://localhost:8080/api/bookings', {
+      const res = await fetch('https://smart-api.hop.sh/api/bookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

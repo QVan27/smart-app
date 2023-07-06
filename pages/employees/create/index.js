@@ -87,7 +87,7 @@ export default function CreateEmploye() {
         return;
       }
 
-      const res = await fetch('http://localhost:8080/api/users/add', {
+      const res = await fetch('https://smart-api.hop.sh/api/users/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

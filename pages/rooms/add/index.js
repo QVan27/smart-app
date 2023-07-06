@@ -85,7 +85,7 @@ export default function AddRoom() {
         return;
       }
 
-      const res = await fetch('http://localhost:8080/api/rooms', {
+      const res = await fetch('https://smart-api.hop.sh/api/rooms', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
