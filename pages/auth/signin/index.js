@@ -79,7 +79,7 @@ export default function SignIn() {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/api/auth/signin', {
+      const response = await fetch(`${process.env.API_URL}/api/auth/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
