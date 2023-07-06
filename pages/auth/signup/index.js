@@ -99,7 +99,7 @@ export default function SignUp() {
         return;
       }
 
-      const res = await fetch('http://localhost:8080/api/auth/signup', {
+      const res = await fetch('https://smart-api.hop.sh/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -242,7 +242,7 @@ export default function Header() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/auth/logout', {
+      const response = await fetch('https://smart-api.hop.sh/api/auth/logout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -268,7 +268,7 @@ export default function Header() {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/user', {
+        const response = await fetch('https://smart-api.hop.sh/api/user', {
           headers: {
             'x-access-token': localStorage.getItem('accessToken')
           }
