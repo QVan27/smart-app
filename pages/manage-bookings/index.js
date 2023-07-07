@@ -282,7 +282,7 @@ export default function ManageBooking() {
                             </BookingCard>
                           </Link>
                           <Form onSubmit={(e) => handleValidate(e, booking?.id)}>
-                            <SmallSubmitButton text="Valider" backgroundColor="var(--main)">Supprimer</SmallSubmitButton>
+                            <SmallSubmitButton text="Valider" backgroundColor="var(--main)" />
                           </Form>
                         </Item>
                       </>
@@ -333,7 +333,7 @@ export default function ManageBooking() {
                             </BookingCard>
                           </Link>
                           <Form onSubmit={(e) => handleDelete(e, booking?.id)}>
-                            <SmallSubmitButton text="Supprimer" backgroundColor="var(--accident)">Supprimer</SmallSubmitButton>
+                            <SmallSubmitButton text="Supprimer" backgroundColor="var(--accident)" />
                           </Form>
                         </Item>
                       </>
