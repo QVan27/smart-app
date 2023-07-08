@@ -38,8 +38,6 @@ const RoleProtectedRoute = ({ allowedRoles, children }) => {
       if (userInfo && userInfo.roles) {
         const userRoles = userInfo.roles;
 
-        console.log('userRoles:', userRoles);
-
         if (!hasRole(userRoles, allowedRoles)) {
           router.push('/unauthorized');
         }
