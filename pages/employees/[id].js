@@ -324,6 +324,8 @@ export default function SingleEmployee() {
     fetchCurrentUser();
   }, []);
 
+  const [selectedRoles, setSelectedRoles] = useState([]);
+
   const showButtonsAdminOrModerator = currentUser?.roles.includes('MODERATOR') || currentUser?.roles.includes('ADMIN');
   const showButtonsAdmin = currentUser?.roles.includes('ADMIN');
 
@@ -340,6 +342,7 @@ export default function SingleEmployee() {
         body: JSON.stringify({
           email,
           position,
+          roles: selectedRoles.map((role) => role.value),
         }),
       });
 
@@ -407,6 +410,17 @@ export default function SingleEmployee() {
                           onChange={handleEmailInputChange}
                           required />
                       </div>
+                      <Select
+                        name="roles"
+                        placeholder="Sélectionner un rôle"
+                        value={selectedRoles}
+                        onChange={setSelectedRoles}
+                        options={[
+                          { value: 'USER', label: 'Utilisateur' },
+                          { value: 'MODERATOR', label: 'Manager' },
+                        ]}
+                        isMulti
+                      />
                       <Select
                         name="position"
                         placeholder="Sélectionner un poste"
