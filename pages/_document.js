@@ -3,7 +3,6 @@ import { ServerStyleSheet } from "styled-components";
 
 const APP_NAME = 'Smart'
 const APP_DESCRIPTION = 'Gestionnaire de réservation de réunion et de salle de réunion pour les entreprises.'
-const APP_TITLE = 'Smart'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -46,7 +45,7 @@ export default class MyDocument extends Document {
           <link rel='apple-touch-icon' sizes='180x180' href='/icons/apple-touch-icon.png' />
           <link rel='manifest' href='/manifest.json' />
           <link rel='shortcut icon' href='/favicon.ico' />
-          <title>{APP_TITLE}</title>
+          <title>Smart</title>
         </Head>
         <body>
           <Main />
