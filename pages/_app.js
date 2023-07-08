@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import RoleProtectedRoute from "@utils/roleProtectedRoute";
 import Head from "next/head";
 import Layout from "@components/layouts/Layout";
 import { useRouter } from 'next/router';
@@ -15,9 +16,26 @@ export default function MyApp({ Component, pageProps }) {
     if (!accessToken && !isPublicPage) {
       router.push('/auth/signin');
     }
-  }, []);
+  }, [router]);
 
-  const renderWithLayout = Component.getLayout || ((page) => <Layout>{page}</Layout>);
+  const renderWithLayout = Component.getLayout || ((page) => {
+    const allowedRoles = [];
+
+    if (router.pathname === '/employees/create') allowedRoles.push('ADMIN');
+    if (router.pathname === '/manage-bookings') allowedRoles.push('MODERATOR', 'ADMIN');
+
+    if (allowedRoles.length > 0) {
+      return (
+        <Layout>
+          <RoleProtectedRoute allowedRoles={allowedRoles}>
+            {page}
+          </RoleProtectedRoute>
+        </Layout>
+      );
+    }
+
+    return <Layout>{page}</Layout>;
+  });
 
   return (
     <>
