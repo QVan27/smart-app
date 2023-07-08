@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import RoleProtectedRoute from "@utils/roleProtectedRoute";
 import Head from "next/head";
 import Layout from "@components/layouts/Layout";
@@ -17,6 +17,35 @@ export default function MyApp({ Component, pageProps }) {
       router.push('/auth/signin');
     }
   }, [router]);
+
+  const [isOnline, setIsOnline] = useState(true)
+  useEffect(() => {
+    if (typeof window !== 'undefined' && 'ononline' in window && 'onoffline' in window) {
+      setIsOnline(window.navigator.onLine)
+      if (!window.ononline) {
+        window.addEventListener('online', () => {
+          setIsOnline(true)
+        })
+      }
+      if (!window.onoffline) {
+        window.addEventListener('offline', () => {
+          setIsOnline(false)
+        })
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && 'serviceWorker' in navigator && window.workbox !== undefined && isOnline) {
+      // skip index route, because it's already cached under `start-url` caching object
+      if (router.route !== '/') {
+        const wb = window.workbox
+        wb.active.then(worker => {
+          wb.messageSW({ action: 'CACHE_NEW_ROUTE' })
+        })
+      }
+    }
+  }, [isOnline, router.route])
 
   const renderWithLayout = Component.getLayout || ((page) => {
     const allowedRoles = [];
@@ -41,7 +70,7 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover' />
       </Head>
       {renderWithLayout(<Component {...pageProps} />)}
     </>
