@@ -47,7 +47,6 @@ export default class MyDocument extends Document {
           <link rel='manifest' href='/manifest.json' />
           <link rel='shortcut icon' href='/favicon.ico' />
           <title>{APP_TITLE}</title>
-          <meta http-equiv="Content-Security-Policy" content="script-src 'none'" />
         </Head>
         <body>
           <Main />
